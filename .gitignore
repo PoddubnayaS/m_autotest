@@ -1,0 +1,9 @@
+*.iml
+.idea/
+.classpath
+.project
+.settings/
+debug.log
+target/
+build/
+allure-results/
