@@ -8,7 +8,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 @CucumberOptions(
 	features="src/test/features",
 	glue= {"ru/project/hooks", "ru/project/steps"},
-	tags = "@success",
+	tags = "@all",
 	snippets = SnippetType.CAMELCASE,
 	plugin = {
 		"pretty",

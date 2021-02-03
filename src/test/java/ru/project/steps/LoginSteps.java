@@ -33,7 +33,7 @@ public class LoginSteps {
 		mainPage.inputPassword(pass);
 	}
 
-	@Если("^нажать на кпопку \"([^\"]*)\"$")
+	@Если("^нажать на кпопку \"Войти\"$")
 	public void clickButton() {
 		mainPage.submitLoginForm();
 	}

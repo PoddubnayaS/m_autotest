@@ -26,12 +26,12 @@ public class MainPage extends AbstractPage {
 	}
 
 	public void openLoginForm() {
-		$x("//span[contains(text(),'Вход или регистрация')]").click();
+		$x("//button[contains(text(),'Вход или регистрация')]").click();
 	}
 
 	public void chooseLoginByEmail() {
-		//$x("//button[contains(text(),'Вход по e-mail/логину/бонусной карте')]").click();
-		$(".bmyLlk").click();
+		$x("//button[contains(text(),'Вход по e-mail/логину/бонусной карте')]").click();
+//		$(".bmyLlk").click();
 	}
 
 	public void inputLogin(String login) {
