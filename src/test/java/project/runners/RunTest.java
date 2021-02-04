@@ -1,4 +1,4 @@
-package ru.project.runners;
+package project.runners;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;
@@ -7,7 +7,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(
 	features="src/test/features",
-	glue= {"ru/project/hooks", "ru/project/steps"},
+	glue= {"project/hooks", "project/steps"},
 	tags = "@all",
 	snippets = SnippetType.CAMELCASE,
 	plugin = {

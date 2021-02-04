@@ -1,4 +1,4 @@
-package ru.project.steps;
+package project.steps;
 
 import com.codeborne.selenide.WebDriverRunner;
 import cucumber.api.java.ru.*;

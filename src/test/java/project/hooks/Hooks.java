@@ -1,4 +1,4 @@
-package ru.project.hooks;
+package project.hooks;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
