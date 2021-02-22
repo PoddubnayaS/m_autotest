@@ -1,10 +1,14 @@
 package project.pages;
 
+import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import project.blocks.Header;
+import project.blocks.LoginForm;
 import project.util.Constants;
+import project.util.Util;
 
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.url;
@@ -26,31 +30,28 @@ public class MainPage extends AbstractPage {
 	}
 
 	public void openLoginForm() {
-		$x("//button[contains(text(),'Вход или регистрация')]").click();
+		WebElement el = Header.getLoginActivator();
+		Util.clickOnElement(el);
 	}
 
 	public void chooseLoginByEmail() {
-		$x("//button[contains(text(),'Вход по e-mail/логину/бонусной карте')]").click();
-//		$(".bmyLlk").click();
+		WebElement el = LoginForm.getLoginByEmail();
+		Util.clickOnElement(el);
 	}
 
 	public void inputLogin(String login) {
-		$("input[name='login']").setValue(login);
+		WebElement el = LoginForm.getLoginInput();
+		Selenide.$(el).setValue(login);
 	}
 
 	public void inputPassword(String pass) {
-		$("input[name='password']").setValue(pass);
+		WebElement el = LoginForm.getPasswordInput();
+		Selenide.$(el).setValue(pass);
 	}
 
 	public void submitLoginForm() {
-		$x("//button[contains(text(),'Войти')]").click();
-	}
-
-	public void checkCaptcha() {
-//		$(".recaptcha-checkbox").click();
-		switchTo().frame($x("//iframe[starts-with(@name, 'a-') and starts-with(@src, 'https://www.google.com/recaptcha')]"));
-		$("div.rc-anchor-content").click();
-		switchTo().defaultContent();
+		WebElement el = LoginForm.getSubmitButton();
+		Util.clickOnElement(el);
 	}
 
 	public void checkUrl() {
@@ -58,14 +59,13 @@ public class MainPage extends AbstractPage {
 	}
 
 	public void checkAuthorized() {
-		WebElement el = $("a[href=\"/personal/\"]");
-//		WebElement el = $x("//span[contains(text(),'Светлана')]");
-//		Assert.assertTrue(el.isDisplayed());
+		WebElement el = Header.getProfileElement();
+		Assert.assertTrue(el.isDisplayed());
 	}
 
 	public void checkLabelErrorPass() {
-		WebElement el = $x("//*[contains(text(),'Неверный пароль')]");
-	//		Assert.assertTrue(el.isDisplayed());
+		WebElement el = LoginForm.getPassErrorMessage();
+	  Assert.assertTrue(el.isDisplayed());
 	}
 }
 

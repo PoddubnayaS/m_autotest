@@ -3,6 +3,7 @@
 .classpath
 .project
 .settings/
+.allure
 debug.log
 target/
 build/

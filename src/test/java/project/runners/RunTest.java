@@ -6,14 +6,14 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 
 @CucumberOptions(
-	features="src/test/features",
-	glue= {"project/hooks", "project/steps"},
-	tags = "@all",
-	snippets = SnippetType.CAMELCASE,
-	plugin = {
-		"pretty",
-		"io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm"
-	}
+		features = "src/test/features",
+		glue = {"project/hooks", "project/steps"},
+		tags = "@plp",
+		snippets = SnippetType.CAMELCASE,
+		plugin = {
+				"io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm",
+				"pretty"
+		}
 )
 
 public class RunTest extends AbstractTestNGCucumberTests {
