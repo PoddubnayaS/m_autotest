@@ -3,7 +3,9 @@ package project.util;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,17 +38,11 @@ public class Util {
 
 	/**
 	 * Клик по элементу
-	 * Дополнительно вынуждены скрывать\прокликивать произвольно появляющиеся слои нотификации или подписки
 	 *
 	 * @param element
 	 */
 	public static void clickOnElement(WebElement element) {
-		try {
-			Selenide.$(element).click();
-		} catch (Exception e) {
-			$(".flocktory-widget-overlay:last-of-type").click();
-			Selenide.$(element).click();
-		}
+		Selenide.$(element).click();
 	}
 
 	public static void waitUntilPageCompleteLoad() {

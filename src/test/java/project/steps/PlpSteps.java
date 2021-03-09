@@ -29,7 +29,7 @@ public class PlpSteps {
 		Assert.assertEquals(departmentPage.getPageHeaderText(), str);
 	}
 
-	@И("нажать на категорию (.*)$")
+	@И("нажать на категорию (.*)")
 	public void clickOnCategory(String str) {
 		WebElement el = departmentPage.getCategoryLinkByText(str);
 		Util.clickOnElement(el);
@@ -40,7 +40,7 @@ public class PlpSteps {
 		Assert.assertEquals(categoryPage.getPageHeaderText(), str);
 	}
 
-	@То("нажать на субкатегорию (.*)$")
+	@То("нажать на субкатегорию (.*)")
 	public void clickOnSubCategory(String str) {
 		WebElement el = categoryPage.getSubCategoryLinkByText(str);
 		Util.clickOnElement(el);

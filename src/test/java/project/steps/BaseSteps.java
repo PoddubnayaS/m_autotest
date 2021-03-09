@@ -15,13 +15,13 @@ import project.util.Util;
  */
 
 public class BaseSteps {
-	@Если("нажать в Хедере на департамент (.*)$")
+	@Если("нажать в Хедере на департамент (.*)")
 	public void clickOnDepartment(String department) {
 		WebElement el = Header.getDepartmentByName(department);
 		Util.clickOnElement(el);
 	}
 
-	@Тогда("текущая ссылка заканчивается на текст \"(.*?)\"$")
+	@Тогда("текущая ссылка заканчивается на текст \"(.*?)\"")
 	public void currentUrlEndByText(String str) {
 		Selenide.sleep(1000); //Util.waitUntilPageCompleteLoad();
 		String url = url();
