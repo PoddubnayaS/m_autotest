@@ -2,7 +2,6 @@ package project.steps;
 
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Selenide;
-import cucumber.api.java.ru.Если;
 import cucumber.api.java.ru.То;
 import org.testng.Assert;
 import project.pages.CartPage;
@@ -21,9 +20,6 @@ public class CartSteps {
 	@То("на странице Корзина отображается {int} товара")
 	public void cartContainElements(Integer count) {
 		CartPage.getCartElements().shouldHave(CollectionCondition.size(count));
-
-//		Integer currentCount = CartPage.getCartElements().size();
-//		Assert.assertEquals(count, currentCount);
 	}
 }
 

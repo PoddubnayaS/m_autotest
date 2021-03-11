@@ -14,4 +14,8 @@ public final class Constants {
 	public static final String CHROME_DRIVER = Util.getRunConfigProperty("chromedriver");
 
 	public static final String CHROME_DRIVER_PATH = Util.getRunConfigProperty("chromedriver_path");
+
+	public static final String FIREFOX_DRIVER = Util.getRunConfigProperty("firefoxdriver");
+
+	public static final String FIREFOX_DRIVER_PATH = Util.getRunConfigProperty("firefoxdriver_path");
 }

@@ -24,14 +24,11 @@ import static com.codeborne.selenide.WebDriverRunner.url;
  * Реализация шагов для PLP
  */
 public class PdpSteps {
-	DepartmentPage departmentPage;
-	CategoryPage categoryPage;
+	Pdp page;
 
 	public PdpSteps() {
 		WebDriver webDriver = WebDriverRunner.getWebDriver();
-
-		departmentPage = new DepartmentPage(webDriver);
-		categoryPage = new CategoryPage(webDriver);
+		page = new Pdp(webDriver);
 	}
 
 	@Если("нажать на кнопку \"Добавить в корзину\"")
@@ -39,7 +36,8 @@ public class PdpSteps {
 		// try fix StaleElementReferenceException
 		Selenide.sleep(1000);
 
-		WebElement el = Pdp.getAddToCartButton();
+		//WebElement el = Pdp.getAddToCartButton();
+		WebElement el = page.addToCartButton;
 		Util.clickOnElement(el);
 	}
 

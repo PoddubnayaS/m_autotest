@@ -6,12 +6,10 @@ import com.codeborne.selenide.commands.Commands;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import project.commands.SafeClick;
+import project.util.DriverProvider;
 
 import java.util.concurrent.TimeUnit;
-import static project.util.Constants.*;
 
 public class Hooks {
 	WebDriver driver;
@@ -19,13 +17,12 @@ public class Hooks {
 	/**
 	 * Конфигурируем окно браузера
 	 */
-	@Before (value="@all")
+	@Before (value="@plp")
 	public void initTestSuite() {
-		System.setProperty(CHROME_DRIVER, CHROME_DRIVER_PATH);
 		Commands.getInstance().add("click", new SafeClick());
-		ChromeOptions ops = new ChromeOptions();
-		ops.addArguments("--disable-notifications");
-		driver = new ChromeDriver(ops);
+
+		driver = DriverProvider.get(System.getProperty("webDriver", "chrome"));
+
 		driver.manage().window().maximize(); //.setSize(new Dimension(1900, 600));
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		WebDriverRunner.setWebDriver(driver);
